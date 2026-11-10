@@ -93,19 +93,21 @@ nav.top .wrap{display:flex;align-items:center;justify-content:space-between;heig
 .meta a:hover{color:#fff}
 .meta svg.i{width:15px;height:15px;color:var(--brass)}
 
-.portrait{position:relative;justify-self:end;width:100%;max-width:430px}
-.arch{position:relative;aspect-ratio:4/5;border-radius:999px 999px 6px 6px;overflow:hidden;box-shadow:0 50px 90px -40px rgba(0,0,0,.85);isolation:isolate}
-.arch img{width:100%;height:100%;object-fit:cover;object-position:50% 18%;filter:saturate(.92) contrast(1.04);transform:scale(1.04);transition:transform 1.2s var(--ease)}
-.portrait:hover .arch img{transform:scale(1.08)}
-.arch::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(7,18,14,.55));}
-.frame{position:absolute;inset:-14px;border:1px solid rgba(216,191,134,.55);border-radius:999px 999px 10px 10px;pointer-events:none}
-.frame::before{content:"";position:absolute;inset:-9px;border:1px solid rgba(216,191,134,.18);border-radius:999px 999px 14px 14px}
-.float{position:absolute;background:rgba(251,250,246,.97);color:var(--ink);box-shadow:0 24px 50px -24px rgba(0,0,0,.7);z-index:2}
-.float.card{left:-46px;bottom:38px;padding:16px 18px;display:flex;gap:14px;align-items:center;min-width:250px}
-.float.card .ic{width:42px;height:42px;background:var(--knight);color:var(--brass-2);display:grid;place-items:center}
-.float.card b{display:block;font-size:14px;font-weight:700}
-.float.card small{font-size:12px;color:var(--muted)}
-.float.pill{right:-18px;top:46px;padding:9px 14px;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;display:flex;align-items:center;gap:9px}
+.portrait{position:relative;justify-self:end;width:100%;max-width:420px;padding:22px 22px 0}
+.portrait::before{content:"";position:absolute;inset:-12% -18% 0;background:radial-gradient(closest-side,rgba(47,120,88,.38),transparent 75%);z-index:0;pointer-events:none}
+.arch{position:relative;z-index:1;aspect-ratio:4/5;border-radius:999px 999px 4px 4px;overflow:hidden;box-shadow:0 60px 100px -50px rgba(0,0,0,.9),inset 0 0 0 1px rgba(216,191,134,.25);isolation:isolate;background:var(--knight)}
+.arch img{width:100%;height:100%;object-fit:cover;object-position:50% 22%;transform:scale(1.03);transition:transform 1.4s var(--ease)}
+.portrait:hover .arch img{transform:scale(1.07)}
+.arch::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,18,14,.15),transparent 30%,transparent 62%,rgba(7,18,14,.75));pointer-events:none}
+.frame{position:absolute;z-index:2;inset:8px 8px -14px;border:1px solid rgba(216,191,134,.6);border-radius:999px 999px 6px 6px;pointer-events:none}
+.frame i{position:absolute;left:50%;top:-6px;width:11px;height:11px;margin-left:-5.5px;background:var(--knight);border:1px solid var(--brass-2);transform:rotate(45deg)}
+.plaque{position:relative;z-index:3;width:84%;margin:-46px auto 0;background:linear-gradient(180deg,#0E241B,#0A1A14);border:1px solid rgba(216,191,134,.55);box-shadow:0 24px 50px -20px rgba(0,0,0,.8);padding:16px 20px;display:flex;align-items:center;gap:14px}
+.plaque::before,.plaque::after{content:"";position:absolute;top:50%;width:7px;height:7px;margin-top:-3.5px;background:var(--brass-2);transform:rotate(45deg)}
+.plaque::before{left:-4px}.plaque::after{right:-4px}
+.plaque .ic{width:40px;height:40px;border:1px solid rgba(216,191,134,.4);color:var(--brass-2);display:grid;place-items:center;flex-shrink:0}
+.plaque b{display:block;font-family:var(--display);font-size:21px;font-weight:600;color:#fff;line-height:1.2}
+.plaque small{display:block;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--sage);margin-top:3px}
+.status{display:inline-flex;align-items:center;gap:10px;padding:7px 14px 7px 12px;border:1px solid rgba(127,211,170,.28);background:rgba(47,158,110,.1);font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#9BDDBC;margin-bottom:22px}
 .dot{width:8px;height:8px;border-radius:50%;background:#2F9E6E;box-shadow:0 0 0 0 rgba(47,158,110,.55);animation:pulse 2.2s infinite}
 @keyframes pulse{70%{box-shadow:0 0 0 9px rgba(47,158,110,0)}100%{box-shadow:0 0 0 0 rgba(47,158,110,0)}}
 
@@ -291,6 +293,20 @@ footer{background:var(--night);color:var(--sage);padding:70px 0 30px;border-top:
 .totop{display:inline-flex;gap:8px;align-items:center;border:1px solid rgba(216,191,134,.3);padding:9px 14px;color:var(--brass-2);font-weight:600;transition:all .2s}
 .totop:hover{background:var(--brass-2);color:var(--knight)}
 
+
+/* BCI disclaimer */
+.disc{position:fixed;left:0;right:0;bottom:0;z-index:110;background:rgba(251,250,246,.98);backdrop-filter:blur(10px);border-top:2px solid var(--brass);box-shadow:0 -24px 60px -30px rgba(7,18,14,.55);transform:translateY(105%);transition:transform .55s var(--ease)}
+.disc.show{transform:none}
+.disc .wrap{display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center;padding-top:22px;padding-bottom:22px}
+.disc h5{font-family:var(--crest);font-size:14px;font-weight:600;letter-spacing:.2em;color:var(--knight);display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.disc h5 svg{color:var(--brass)}
+.disc p{font-size:13.5px;color:#3A4A43;line-height:1.6}
+.disc ul{margin:6px 0 0 18px;font-size:13px;color:#3A4A43;line-height:1.6}
+.disc ul li::marker{color:var(--brass)}
+.disc .agree{height:48px;padding:0 30px;background:var(--knight);color:#fff;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;border:1px solid var(--knight);transition:all .2s;white-space:nowrap}
+.disc .agree:hover{background:var(--emerald);border-color:var(--emerald)}
+@media (max-width:760px){.disc .wrap{grid-template-columns:1fr;gap:14px;padding-top:18px;padding-bottom:18px}.disc .agree{width:100%}.disc ul{max-height:30vh;overflow:auto;margin-left:0;padding-left:18px;font-size:12.5px}.disc p{font-size:13px}}
+
 /* reveal */
 .rv{opacity:0;transform:translateY(22px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
 .rv.in{opacity:1;transform:none}
@@ -318,9 +334,7 @@ footer{background:var(--night);color:var(--sage);padding:70px 0 30px;border-top:
   nav.top{background:rgba(7,18,14,.92);backdrop-filter:blur(14px)}
   .hero{padding:120px 0 80px}
   .hero .wrap{grid-template-columns:1fr;gap:54px}
-  .portrait{order:-1;justify-self:center;max-width:320px}
-  .float.card{left:-20px}
-  .float.pill{right:-10px}
+  .portrait{order:-1;justify-self:center;max-width:340px}
   .head{grid-template-columns:1fr}
   .values,.grid2,.grid3{grid-template-columns:1fr}
   .toolbar{flex-direction:column;align-items:stretch}
@@ -344,8 +358,9 @@ footer{background:var(--night);color:var(--sage);padding:70px 0 30px;border-top:
   .wcard,.domain,.composer,.ccard{padding:26px 20px}
   .seg{grid-template-columns:1fr}
   .fgrid{grid-template-columns:1fr}
-  .float.card{min-width:0;left:-8px;bottom:22px;padding:12px 14px}
-  .float.pill{right:-6px;top:30px}
+  .portrait{max-width:300px;padding:16px 16px 0}
+  .plaque{width:92%;padding:13px 14px}
+  .plaque b{font-size:17px}
   .hero .lead{font-size:16.5px}
   .btn{padding:15px 20px}
 }
@@ -410,6 +425,7 @@ footer{background:var(--night);color:var(--sage);padding:70px 0 30px;border-top:
 <header class="hero" id="top">
   <div class="wrap">
     <div>
+      <div class="rv"><span class="status"><span class="dot"></span>Open to internships</span></div>
       <div class="eyebrow rv">National Law University Meghalaya · Class of 2030</div>
       <h1 class="rv d1">Ritik<span>Raj</span></h1>
       <p class="motto rv d2">Arbitration, maritime law &amp; the future of digital trade.</p>
@@ -426,12 +442,11 @@ footer{background:var(--night);color:var(--sage);padding:70px 0 30px;border-top:
     </div>
 
     <div class="portrait rv d2">
-      <div class="frame" aria-hidden="true"></div>
-      <div class="arch"><img src="ritik.jpg" alt="Portrait of Ritik Raj" width="880" height="1100" fetchpriority="high"></div>
-      <div class="float pill"><span class="dot"></span>Open to internships</div>
-      <div class="float card">
+      <div class="arch"><img src="ritik.jpg?v=3" alt="Portrait of Ritik Raj" width="900" height="1125" fetchpriority="high"></div>
+      <div class="frame" aria-hidden="true"><i></i></div>
+      <div class="plaque">
         <div class="ic"><svg class="i"><use href="#i-scale"/></svg></div>
-        <div><b>Judicial Intern, Patna HC</b><small>Two benches · Jan–Feb 2026</small></div>
+        <div><b>Patna High Court</b><small>Judicial Intern · 2026</small></div>
       </div>
     </div>
   </div>
@@ -798,6 +813,21 @@ footer{background:var(--night);color:var(--sage);padding:70px 0 30px;border-top:
   </div>
 </footer>
 
+<div class="disc" id="disc" role="dialog" aria-labelledby="disc-h" aria-live="polite">
+  <div class="wrap">
+    <div>
+      <h5 id="disc-h"><svg class="i"><use href="#i-shield"/></svg>DISCLAIMER</h5>
+      <p>Under the rules of the Bar Council of India, advocates may not solicit work or advertise in any form. By accessing this website, you acknowledge that:</p>
+      <ul>
+        <li>You are seeking information about Ritik Raj of your own accord, and there has been no solicitation, advertisement or inducement of any kind.</li>
+        <li>This website is an academic and professional portfolio and should not be construed as legal advice for any purpose.</li>
+        <li>Ritik Raj is a law student and is not enrolled as an advocate; using this website creates no advocate–client relationship.</li>
+      </ul>
+    </div>
+    <button class="agree" id="agree">I Agree</button>
+  </div>
+</div>
+
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script>
@@ -900,6 +930,15 @@ footer{background:var(--night);color:var(--sage);padding:70px 0 30px;border-top:
     const name = $('#fname').value.trim(), msg = $('#fmsg').value.trim();
     const body = 'Dear Ritik,\n\n' + (msg || '') + '\n\nBest regards,\n' + (name || '');
     location.href = 'mailto:viaritik@gmail.com?subject=' + encodeURIComponent(sub.value) + '&body=' + encodeURIComponent(body);
+  });
+
+  // BCI disclaimer (remembered per browser where storage is available)
+  const disc = $('#disc'); let agreed = false;
+  try { agreed = localStorage.getItem('rr-disclaimer') === '1'; } catch {}
+  if (!agreed) setTimeout(() => disc.classList.add('show'), 700);
+  $('#agree').addEventListener('click', () => {
+    disc.classList.remove('show');
+    try { localStorage.setItem('rr-disclaimer', '1'); } catch {}
   });
 })();
 </script>
